@@ -1,0 +1,11 @@
+C:\Users\jose.gutierrez\source\repos\BASE\LN\bin\Debug\LN.dll
+C:\Users\jose.gutierrez\source\repos\BASE\LN\bin\Debug\LN.pdb
+C:\Users\jose.gutierrez\source\repos\BASE\LN\bin\Debug\DAO.dll
+C:\Users\jose.gutierrez\source\repos\BASE\LN\bin\Debug\ENTIDAD.dll
+C:\Users\jose.gutierrez\source\repos\BASE\LN\bin\Debug\DAO.pdb
+C:\Users\jose.gutierrez\source\repos\BASE\LN\bin\Debug\ENTIDAD.pdb
+C:\Users\jose.gutierrez\source\repos\BASE\LN\obj\Debug\LN.csproj.AssemblyReference.cache
+C:\Users\jose.gutierrez\source\repos\BASE\LN\obj\Debug\LN.csproj.CoreCompileInputs.cache
+C:\Users\jose.gutierrez\source\repos\BASE\LN\obj\Debug\LN.csproj.CopyComplete
+C:\Users\jose.gutierrez\source\repos\BASE\LN\obj\Debug\LN.dll
+C:\Users\jose.gutierrez\source\repos\BASE\LN\obj\Debug\LN.pdb

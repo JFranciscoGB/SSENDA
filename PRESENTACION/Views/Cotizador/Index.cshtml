@@ -1,0 +1,379 @@
+﻿@model List<ENTIDAD.ClienteSofCom>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+
+
+<main role="main">
+    <div class="jumbotron">
+
+        <div class="container">
+            <h3 class="text-center">COTIZADOR</h3>
+            <div class="row">
+
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active col-12 col-sm-12" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link col-12 col-sm-12" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Detalle Articulos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content" id="myTabContent">
+
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <!--INICIO CONTENIDO DEL PILL HOME -->
+                    <div class="p-3">
+
+                    </div>
+                    <form>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-3 col-sm-1 col-form-label">Numero</label>
+                            <div class="col-9 col-sm-5">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Numero" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Cliente </label>
+                            <div class="col-9 col-sm-5">
+                                <input type="hidden" class="form-control" id="q" onkeyup="traerDatosClientes()" placeholder="Cliente">
+                                <select id="clienteres2" class="col-9 custom-select js-example-basic-single">
+                                    <option selected>Elegir</option>
+
+                                    @*@foreach (var item in Model)
+                                    {
+                                <option>@item.ruc+" "+@item.razonsocial</option>
+                                            
+                                      
+                                           
+                                      
+                                    }*@
+                                </select>
+
+                                <button type="button" class="col-2 btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    +
+                                </button>
+                            </div>
+
+                            <!-- Modal cliente -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+
+                                            <div class="form-group col-12 col-sm-12">
+
+                                                <input type="text" class="form-control" id="inputUser" placeholder="Razon Social">
+                                            </div>
+                                            <div class="form-group col-12 col-sm-12">
+
+                                                <input type="text" class="form-control" id="inputPass" placeholder="RUC">
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12">
+
+                                                <input type="text" class="form-control" id="inputPass" placeholder="Direccion">
+                                            </div>
+                                            <div class="form-group col-12 col-sm-12">
+
+                                                <input type="text" class="form-control" id="inputPass" placeholder="Telefono">
+                                            </div>
+                                            <div class="form-group col-12 col-sm-12">
+
+                                                <input type="text" class="form-control" id="inputPass" placeholder="Correo">
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-12">
+                                                <input type="text" class="form-control" id="inputPass" placeholder="Tipo Cliente">
+                                            </div>
+
+
+
+                                            <div class="form-group col-sm-3">
+                                                <button type="submit" class="btn btn-primary">Registrar</button>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-primary">Gaurdar Cambios</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Modal Cliente-->
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Direccion </label>
+                            <div class="col-9 col-sm-9">
+                                <input type="text" class="form-control" id="direcion" placeholder="Direccion">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label"> Pago </label>
+                            <div class="col-9 col-sm-4">
+                                <select class="custom-select">
+                                    <option selected>Elegir</option>
+                                    <option value="1">Forma A</option>
+                                    <option value="2">Forma B</option>
+                                    <option value="3">Forma C</option>
+                                </select>
+                            </div>
+
+                            <!--artificio espacio entre filas para celular-->
+                            <div class="col-12 col-sm-auto">
+                                <div class="form-group row"></div>
+                            </div>
+                            <!--FIN artificio espacio entre filas para celular-->
+                            <!--Documentos por tipo de  pago-->
+
+
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Adjunto</label>
+                            <div class="col-9 col-sm-4">
+                                <div class="custom-file ">
+                                    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Vendedor </label>
+                            <div class="col-9 col-sm-4">
+                                <select class="col-12 custom-select">
+                                    <option class="col-2" selected>Elegir</option>
+                                    <option value="1">Vendedor A</option>
+                                    <option value="2">Vendedor B</option>
+                                    <option value="3">Vendedor C</option>
+                                </select>
+                            </div>
+
+                            <!--artificio espacio entre filas para celular-->
+                            <div class="col-12 col-sm-auto">
+                                <div class="form-group row"></div>
+                            </div>
+                            <!--FIN artificio espacio entre filas para celular-->
+
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label"> Emision </label>
+                            <div class="col-9 col-sm-4">
+                                <input type="date" class="form-control" id="inputPassword3" placeholder="Fecha Creacion">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Moneda </label>
+                            <div class="col-9 col-sm-4">
+                                <select class="col-12 custom-select">
+                                    <option class="col-2" selected>Soles</option>
+                                </select>
+                            </div>
+
+                            <!--artificio espacio entre filas para celular-->
+                            <div class="col-12 col-sm-auto">
+                                <div class="form-group row"></div>
+                            </div>
+                            <!--FIN artificio espacio entre filas para celular-->
+
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Glosa</label>
+                            <div class="col-9 col-sm-4">
+                                <input type="text" class="form-control" id="direcion" placeholder="Glosa">
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Almacen </label>
+                            <div class="col-9 col-sm-4">
+                                <select class="custom-select">
+                                    <option selected>Elegir</option>
+                                    <option value="1">Almacen A</option>
+                                    <option value="2">Almacen B</option>
+                                    <option value="3">Almacen C</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--CAMBIO DE FECHA EN LA FILA DE ARRIBA-->
+                        @*<div class="form-group row">
+                                <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Fecha Creacion </label>
+                                <div class="col-9 col-sm-5">
+                                    <input type="date" class="form-control" id="inputPassword3" placeholder="Fecha Creacion">
+                                </div>
+                            </div>*@
+                        <!--FIN DE CAMBIO-->
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <!---button type="submit" class="btn btn-primary">Sign in</!--button-->
+                            </div>
+                        </div>
+
+                    </form>
+                    <!--FIN DEL CONTENIDO PILL HOME--->
+                </div>
+
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="p-3">
+
+                    </div>
+                    <!--INICIO DEL CONTENIDO PILL PROFILE--->
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Articulo </label>
+                        <div class="col-9 col-sm-6">
+                            <select id="articulo_select" class="custom-select">
+                                <option selected>Elegir</option>
+                                <option value="1">Articulo A</option>
+                                <option value="2">Articulo B</option>
+                                <option value="3">Articulo C</option>
+                                <option value="4">Articulo D</option>
+                                <option value="5">Articulo E</option>
+                                <option value="6">Articulo F</option>
+                            </select>
+                        </div>
+
+
+                        <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Unidad </label>
+                        <div class="col-9 col-sm-3">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="Unidad">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Precio </label>
+                        <div class="col-9 col-sm-3">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="Precio">
+                        </div>
+
+                        <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">Stock </label>
+                        <div class="col-9 col-sm-3">
+                            <input type="text" class="form-control text-white bg-success" id="inputPassword3" placeholder="Stock" value="100" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">C.Solicitada </label>
+                        <div class="col-9 col-sm-3">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="Cantidad Solicitada">
+                        </div>
+
+
+                        <label for="inputPassword3" class="col-3 col-sm-1 col-form-label">C.Disponible</label>
+                        <div class="col-9 col-sm-3">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="Cantidad Disponible">
+                        </div>
+
+                        <div class="col-3  col-sm-4 ">
+                            <button class="col-sm-6 btn btn-primary" id="boton"> Asignar </button>
+                        </div>
+
+                    </div>
+
+                    <div class="section">
+                        <!----button class="btn btn-primary" id="boton"> JSON</!--button--->
+
+                    </div>
+
+                    <div class="table-responsive">
+
+
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">CODIGO</th>
+                                    <th scope="col">ARTICULO</th>
+                                    <th scope="col">UNIDAD</th>
+                                    <th scope="col">PRECIO</th>
+                                    <th scope="col">CANTIDAD REQUERIDA</th>
+                                    <th scope="col">CANTIDAD DISPONIBLE</th>
+                                    <th scope="col">STOCK</th>
+                                    <th scope="col">ANULAR</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="res">
+                                <tr>
+                                    <th scope="row">MLP000007601</th>
+                                    <td>MOTOCICLETA/VIPER-200DKR/NEGRO-ANARANJADO	</td>
+                                    <td>UND</td>
+                                    <td>5,900.0000</td>
+                                    <td class="bg-danger">1.0000</td>
+                                    <td>500</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">MLP000007221</th>
+                                    <td>MOTOCICLETA/VIPER-200DKR/NEGRO-AMARILLO	</td>
+                                    <td>UND</td>
+                                    <td>5,900.0000</td>
+                                    <td>200</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">MLP000007221</th>
+                                    <td>MOTOCICLETA/VIPER-200DKR/NEGRO-AMARILLO	</td>
+                                    <td>UND</td>
+                                    <td>5,900.0000</td>
+                                    <td>300</td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--FIN DEL CONTENIDO PILL PROFILE--->
+                </div>
+
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+</main>
+
+
+<script src="../Assets/dist/js/cotizador.js"></script>
+<script src="../Assets/dist/js/selector.js"></script>
+
+
+
+
+

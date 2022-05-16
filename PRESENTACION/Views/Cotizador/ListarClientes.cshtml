@@ -1,0 +1,33 @@
+﻿
+@model List<ENTIDAD.ClienteSofCom>
+
+@{
+    ViewBag.Title = "ListarClientes";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<h2>ListarClientes</h2>
+
+
+<select class="js-example-basic-single" name="state">
+    <option value="AL">Alabama</option>
+    ...
+    <option value="WY">Wyoming</option>
+</select>
+
+<select id="bd_select" >
+    <option selected>Elegir</option>
+
+    @foreach (var item in Model)
+    {
+        
+        <option >@item.ruc@item.razonsocial</option>
+
+
+
+
+    }
+</select>
+
+
+

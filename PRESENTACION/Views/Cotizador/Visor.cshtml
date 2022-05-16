@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "Visor";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+<main>
+    <div class="container">
+        <h2>Visor De Cotizaciones</h2>
+        <div class="row p-3 mb-2 bg-success text-white">
+            <div class="col-sm-3 col-6">
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Fecha Emision</span>
+                    </div>
+                    <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="col-sm-3 col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Fecha Registro</span>
+                    </div>
+                    <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="col-sm-3 col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Estados</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija...</option>
+                        <option value="1">Aprovado</option>
+                        <option value="2">Cerrado</option>
+                        <option value="3">Anulado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Cliente</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija...</option>
+                        <option value="1">Cliente 1</option>
+                        <option value="2">Cliente 2</option>
+                        <option value="3">Cliente 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Vendedor</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija...</option>
+                        <option value="1">Vendedor 1</option>
+                        <option value="2">Vendedor 2</option>
+                        <option value="3">Vendedor 3</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-3 col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <input class="form-control" type="search" placeholder="Parametro" aria-label="Search">
+                        <!-- prueba-->
+                        <!--- FIN DE PRUEBA-->
+                    </div>
+                    <button id="botonAlertar" class="form-control btn btn-info " type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <h4>Lista de cotizaciones </h4> <br/>
+        <div class="row">
+
+            <div class="table-responsive table-responsive-md table-responsive-lg">
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">NUMERO</th>
+                            <th scope="col">FECHA</th>
+                            <th scope="col">CLIENTE</th>
+                            <th scope="col">DIRECCION</th>
+                            <th scope="col">FORMA DE PAGO</th>
+                            <th scope="col">ALMACEN</th>
+                            <th scope="col">VENDDEDOR</th>
+                            <th scope="col">#</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody id="res">
+                        <tr>
+                            <th scope="row">COT85-22</th>
+                            <td>12/05/2022 </td>
+                            <td>EMPRESA A	</td>
+                            <td>DIRECCION 1 </td>
+                            <td>30 DIAS </td>
+                            <td>ALMACEN 1</td>
+                            <td>VENDEDOR 1</td>
+                            <td><button id="botonAprobar1" class="btn btn-success">Aprobar</button></td>
+                            <td><button id="botonRechazar1" class="btn btn-danger">Rechazar</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">COT86-22</th>
+                            <td>12/05/2022 </td>
+                            <td>EMPRESA B</td>
+                            <td>DIRECCION 2 </td>
+                            <td>CONTADO</td>
+                            <td>ALMACEN 5</td>
+                            <td>VENDEDOR 12</td>
+                            <td> <button id="botonAprobar2" class="btn btn-success">Aprobar</button></td>
+                            <td><button id="botonRechazar2" class="btn btn-danger">Rechazar</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">COT87-22</th>
+                            <td>12/05/2022 </td>
+                            <td>EMPRESA C</td>
+                            <td>DIRECCION 8 </td>
+                            <td>30 DIAS </td>
+                            <td>ALMACEN 3</td>
+                            <td>VENDEDOR 6</td>
+                            <td><button id="botonAprobar3" class="btn btn-success">Aprobar</button></td>
+                            <td><button id="botonRechazar3" class="btn btn-danger">Rechazar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row" style="border-style: solid;">
+            <h5>Detalle de Articulos</h5>
+            <div class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead class="thead-green">
+                        <tr>
+                            <th scope="col">CODIGO</th>
+                            <th scope="col">ARTICULO</th>
+                            <th scope="col">UNIDAD</th>
+                            <th scope="col">PRECIO</th>
+                            <th scope="col">STOCK</th>
+                            <th scope="col">C.SOLICITADA</th>
+                            <th scope="col">C.DISPONIBLE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="res">
+                        <tr>
+                            <th scope="row">MLP000007601</th>
+                            <td>MOTOCICLETA/VIPER-200DKR/NEGRO-ANARANJADO</td>
+                            <td>UND</td>
+                            <td>5,900.0000</td>
+                            <td>1000</td>
+                            <td scope="row" class="bg-danger text-white text-center">2000</td>
+                            <td class="text-black text-center">344</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">MLP000007221</th>
+                            <td>MOTOCICLETA/VIPER-200DKR/NEGRO-AMARILLO	</td>
+                            <td>UND</td>
+                            <td>5,900.0000</td>
+                            <td>200</td>
+                            <td class="bg-primary text-white text-center">50</td>
+                            <td class="text-black text-center">344</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">MLP000009601</th>
+                            <td>MOTOCICLETA/VIPER-200DKR/NEGRO-ANARANJADO	</td>
+                            <td>UND</td>
+                            <td>5,900.0000</td>
+                            <td>500</td>
+                            <td scope="row" class="bg-danger text-white text-center">800</td>
+                            <td class="text-black text-center">344</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<script src="../Assets/dist/js/visor.js"></script>

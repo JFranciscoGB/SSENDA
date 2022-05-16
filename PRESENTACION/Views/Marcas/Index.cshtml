@@ -1,0 +1,21 @@
+﻿@model List<ENTIDAD.Marcas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<h2>Listado de Marcas</h2>
+
+@foreach (var item in Model)
+{
+    <tr>
+        @item.mar_id
+    </tr>
+    <br />
+    <tr>
+        @item.mar_descripcion
+    </tr>
+}
+
+
